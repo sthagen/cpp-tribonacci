@@ -2,6 +2,7 @@
 /* Implementations of the tribonacci sequence:
  *   0, 0, 1, 1, 2, 4, 7, 13, 24, 44, 81, 149, 274, 504, 927, 1705, 3136, 5768, 10609, 19513, 35890, 66012, ... (sequence A000073 in the OEIS)
  */
+#include <vector>
 
 // Naive recursive implementation - slowly and happily wrapping around for larger arguments
 template <typename T> unsigned tribonacci(T n) {
@@ -21,7 +22,7 @@ template <typename T> T tribonacci_iter(T i) {
 
 // Dynamic programming implementation - needs some space ...
 template <typename T> T tribonacci_dynamic(T i) {
-    vector<T> f(max(3, i + 1));
+    std::vector<T> f(std::max(3, i + 1));
     f[0] = 0, f[1] = 0, f[2] = 1;
     if (i < 3) return f[i];
     for (T m = 3; m <= i; ++m) f[m] = f[m - 1] + f[m - 2] + f[m - 3];
