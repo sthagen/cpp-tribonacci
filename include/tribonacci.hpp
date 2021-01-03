@@ -10,10 +10,11 @@ template <typename T> unsigned tribonacci(T n) {
 
 // Iterative implementation - faster but still happily wrapping around for larger arguments
 template <typename T> T tribonacci_iter(T i) {
-  if (i == 0 || i == 1) return 0;
-  if (i == 2 || i == 3) return 1;
-  T triad[3] = {1, 1, 1};
-  while (i > 3)
-    triad[--i & 1] = triad[0] + triad[1] + triad[2];
-  return triad[0];
+    T triad[3] = {0, 0, 1};
+    if (i < 3) return *(triad + i);
+    while (--i > 1) {
+        T accumulator = *(triad) + *(triad + 1) + *(triad + 2);
+        *(triad) = *(triad + 1), *(triad + 1) = *(triad + 2), *(triad + 2) = accumulator;
+    }
+    return *(triad + 2);
 }
