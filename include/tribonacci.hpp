@@ -22,7 +22,7 @@ template <typename T> T tribonacci_iter(T i) {
 
 // Dynamic programming implementation - needs some space ...
 template <typename T> T tribonacci_dynamic(T i) {
-    std::vector<T> f(std::max(3, i + 1));
+    std::vector<T> f(std::max(T{3}, i + 1));
     f[0] = 0, f[1] = 0, f[2] = 1;
     if (i < 3) return f[i];
     for (T m = 3; m <= i; ++m) f[m] = f[m - 1] + f[m - 2] + f[m - 3];
