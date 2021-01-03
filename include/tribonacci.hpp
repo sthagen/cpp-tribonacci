@@ -11,8 +11,9 @@ template <typename T> unsigned tribonacci(T n) {
 // Iterative implementation - faster but still happily wrapping around for larger arguments
 template <typename T> T tribonacci_iter(T i) {
   if (i == 0 || i == 1) return 0;
+  if (i == 2 || i == 3) return 1;
   T triad[3] = {1, 1, 1};
-  while (i > 2)
+  while (i > 3)
     triad[--i & 1] = triad[0] + triad[1] + triad[2];
   return triad[0];
 }
