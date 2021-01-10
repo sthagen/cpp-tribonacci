@@ -2,6 +2,6 @@
 Experimental header-only tribonacci series C++ implementation.
 
 ## Status
-Prototyping
+Experimental
 
 **Note**: The default branch is `default`.
